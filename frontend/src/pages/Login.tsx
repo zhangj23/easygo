@@ -9,8 +9,8 @@ function Login() {
         <img src="logo.png" alt="EasyGo Logo" className="w-100 h-auto mb-4" />
         
         <div className="flex flex-col items-start justify-center h-1/3 mt-10 text-[#000]">
-          <span className="slogan-text block text-5xl font-medium">Built for Everyone,</span>
-          <span className="slogan-text block text-5xl font-medium">Guided by You</span>
+          <span className="slogan-text block text-5xl font-bold">Built for Everyone,</span>
+          <span className="slogan-text block text-5xl font-bold py-2">Guided by You</span>
         </div>
       </div>
 
@@ -55,7 +55,7 @@ function Login() {
             </div>
 
             <a
-              href="#"
+              href="forgotpassword"
               className="text-[#157F1F] text-sm hover:underline"
             >
               Forgot password?
