@@ -73,7 +73,7 @@ function Login() {
 
           <div className="flex justify-center mt-4">
             <p className="text-sm">
-              Don't have an account? <a href="#" className="text-[#157F1F]"><b>Sign up</b></a>
+              Don't have an account? <a href="signup" className="text-[#157F1F]"><b>Sign up</b></a>
             </p>
           </div>
           
