@@ -7,26 +7,6 @@ const SearchDropdown = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [items, setItems] = useState({ hits: [] });
-  // const items = [
-  //   "Apple",
-  //   "Banana",
-  //   "Orange",
-  //   "Mango",
-  //   "Pineapple",
-  //   "Strawberry",
-  //   "Blueberry",
-  //   "Raspberry",
-  //   "Blackberry",
-  //   "Grape",
-  //   "Watermelon",
-  //   "Peach",
-  //   "Plum",
-  //   "Pear",
-  // ];
-
-  // const filteredItems = items.filter((item) =>
-  //   item.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
 
   const queryGet = async (e) => {
     try {
