@@ -8,6 +8,7 @@ import Home from "./pages/Home.tsx";
 
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
+import Forgotpwd from "./pages/Forgotpwd.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/forgotpassword",
+    element: <Forgotpwd />,
   },
 ]);
 

@@ -8,15 +8,15 @@ function Signup() {
       <div className="float-left mt-10 ml-32">
         <img src="logo.png" alt="EasyGo Logo" className="w-100 h-auto mb-4" />
         
-        <div className="flex flex-col items-start justify-center h-1/3 mt-10 text-[#2D406B]">
-          <span className="slogan-text block text-5xl font-medium">Built for Everyone,</span>
-          <span className="slogan-text block text-5xl font-medium">Guided by You</span>
+        <div className="flex flex-col items-start justify-center h-1/3 mt-10 text-[#000]">
+          <span className="slogan-text block text-5xl font-bold">Built for Everyone,</span>
+          <span className="slogan-text block text-5xl font-bold py-2">Guided by You</span>
         </div>
       </div>
 
       {/* Right side sign-up box */}
       <div className="signin float-right mt-10 bg-white p-8 rounded-lg w-[520px] mr-32 border border-gray-300">
-        <h2 className="text-2xl font-bold text-[#2D406B] mb-6 text-left">Sign up</h2>
+        <h2 className="text-2xl font-bold text-[#000] mb-6 text-left">Sign up</h2>
         
         <form>
           <div className="mb-4">
