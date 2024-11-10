@@ -3,6 +3,7 @@ import MapComponent from "../components/MapComponent.tsx";
 import { baseUrl } from "../config";
 import { FaSearchLocation } from "react-icons/fa";
 import SearchDropdown from "../components/SearchDropdown.tsx";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [currentLat, setLat] = useState<Number>();
@@ -12,9 +13,17 @@ function Home() {
   const [endLat, setEndLat] = useState<Number>();
   const [startLon, setStartLon] = useState<Number>();
   const [endLon, setEndLon] = useState<Number>();
-
+  const [checked, setChecked] = useState(false);
+  const [searchClick, setSearchClick] = useState(false);
+  const navigate = useNavigate();
+  const logOut = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+  const changeChecked = () => {
+    setChecked((val) => !val);
+  };
   const fetchAccessible = async () => {
-    const end = { lat: 42.7308903, lon: -73.687679 };
     try {
       fetch(`${baseUrl}/graph/api/route/wheelchair`, {
         method: "POST",
@@ -37,7 +46,29 @@ function Home() {
       console.log(error);
     }
   };
-
+  const fetchWalking = async () => {
+    try {
+      fetch(`${baseUrl}/graph/api/route/normal`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          startLat: startLat,
+          startLon: startLon,
+          endLat: endLat,
+          endLon: endLon,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setRoute(data.route);
+          console.log(data.route);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLat(position.coords.latitude);
@@ -47,10 +78,13 @@ function Home() {
 
   useEffect(() => {
     if (startLat && endLat && startLon && endLon) {
-      fetchAccessible();
-      console.log("asd");
+      if (checked) {
+        fetchAccessible();
+      } else {
+        fetchWalking();
+      }
     }
-  }, [startLat, endLat, startLon, endLon]);
+  }, [startLat, endLat, startLon, endLon, searchClick]);
   return (
     <div className="h-[200vh] bg-gradient-to-t from-blue-300 to-white-400 font-poppins">
       <div className="flex items-center justify-between px-10 py-2 bg-white shadow-lg">
@@ -58,12 +92,12 @@ function Home() {
           <img className="w-2/3" src="logo.png" alt="logo" />
         </a>
         <div className="flex space-x-8">
-          <a
+          <button
+            onClick={logOut}
             className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-            href="/login"
           >
             Log Out
-          </a>
+          </button>
         </div>
       </div>
 
@@ -75,6 +109,7 @@ function Home() {
             lon={currentLong}
             outLat={setStartLat}
             outLon={setStartLon}
+            setSearchClick={setSearchClick}
           />
 
           <SearchDropdown
@@ -83,16 +118,29 @@ function Home() {
             lon={currentLong}
             outLat={setEndLat}
             outLon={setEndLon}
+            setSearchClick={setSearchClick}
           />
         </div>
       </div>
-
-      <div className="py-2 w-2/3 m-auto">
-        {currentLat ? (
-          <MapComponent lat={currentLat} long={currentLong} route={route} />
-        ) : (
-          ""
-        )}
+      <div className="flex">
+        <div className="py-2 w-3/4 ml-4">
+          {currentLat ? (
+            <MapComponent lat={currentLat} long={currentLong} route={route} />
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="flex items-center h-1/3 m-4">
+          <label className="items-center" htmlFor="wheelchair">
+            Wheelchair accessible:
+          </label>
+          <input
+            type="checkbox"
+            className="w-8 m-2 h-8"
+            id="wheelchair"
+            onChange={changeChecked}
+          />
+        </div>
       </div>
     </div>
   );

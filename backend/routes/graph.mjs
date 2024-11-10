@@ -49,9 +49,9 @@ router.post("/api/route/wheelchair", async (req, res) => {
     res.status(500).send(error);
   }
 });
-router.get("/api/route/normal", async (req, res) => {
+router.post("/api/route/normal", async (req, res) => {
   try {
-    const url = `https://graphhopper.com/api/1/route?point=${req.startLat},${req.startLon}&point=${req.endLat},${req.endLon}&vehicle=foot&key=${key}`;
+    const url = `https://graphhopper.com/api/1/route?point=${req.body.startLat},${req.body.startLon}&point=${req.body.endLat},${req.body.endLon}&vehicle=foot&key=${key}`;
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
@@ -61,6 +61,7 @@ router.get("/api/route/normal", async (req, res) => {
       .map(([lat, lon]) => [lat, lon]);
     res.json({ route: decodedPoints }).status(200);
   } catch (error) {
+    console.log(error);
     res.status(500).send(error);
   }
 });

@@ -1,23 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { baseUrl } from "../config";
 
 function Signup() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const handleSubmit = async (e) => {
+    console.log("clicked");
+    e.preventDefault();
+    try {
+      const response = await fetch(`${baseUrl}/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const changePassword = (e) => {
+    setPassword(e.target.value);
+  };
   return (
     <div className="h-screen bg-gradient-to-t from-[#f4f4f4] to-[#f2d0a4] p-20 font-poppins">
-      
       {/* Left side with logo and slogan */}
       <div className="float-left mt-10 ml-32">
         <img src="logo.png" alt="EasyGo Logo" className="w-100 h-auto mb-4" />
-        
+
         <div className="flex flex-col items-start justify-center h-1/3 mt-10 text-[#000]">
-          <span className="slogan-text block text-5xl font-bold">Built for Everyone,</span>
-          <span className="slogan-text block text-5xl font-bold py-2">Guided by You</span>
+          <span className="slogan-text block text-5xl font-bold">
+            Built for Everyone,
+          </span>
+          <span className="slogan-text block text-5xl font-bold py-2">
+            Guided by You
+          </span>
         </div>
       </div>
 
       {/* Right side sign-up box */}
       <div className="signin float-right mt-10 bg-white p-8 rounded-lg w-[520px] mr-32 border border-gray-300">
-        <h2 className="text-2xl font-bold text-[#000] mb-6 text-left">Sign up</h2>
-        
+        <h2 className="text-2xl font-bold text-[#000] mb-6 text-left">
+          Sign up
+        </h2>
+
         <form>
           <div className="mb-4">
             <input
@@ -25,6 +58,8 @@ function Signup() {
               id="email"
               name="email"
               placeholder="Email Address"
+              value={email}
+              onChange={changeEmail}
               className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#157F1F] placeholder:text-black"
               required
             />
@@ -36,6 +71,8 @@ function Signup() {
               id="password"
               name="password"
               placeholder="Password"
+              value={password}
+              onChange={changePassword}
               className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-[#157F1F] placeholder:text-black"
               required
             />
@@ -59,6 +96,7 @@ function Signup() {
             <button
               type="submit"
               className="bg-[#157F1F] text-white py-2 px-6 rounded-md hover:bg-[#0f6118] transition-colors"
+              onClick={handleSubmit}
             >
               Sign up
             </button>
@@ -66,13 +104,14 @@ function Signup() {
 
           <div className="flex justify-center mt-4">
             <p className="text-sm">
-              Already have an account? <a href="login" className="text-[#157F1F]"><b>Log in</b></a>
+              Already have an account?{" "}
+              <a href="login" className="text-[#157F1F]">
+                <b>Log in</b>
+              </a>
             </p>
           </div>
-          
         </form>
       </div>
-
     </div>
   );
 }
