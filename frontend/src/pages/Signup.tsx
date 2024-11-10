@@ -66,7 +66,7 @@ function Signup() {
 
           <div className="flex justify-center mt-4">
             <p className="text-sm">
-              Already have an account? <a href="login" className="text-[#157F1F]"><b>Sign in</b></a>
+              Already have an account? <a href="login" className="text-[#157F1F]"><b>Log in</b></a>
             </p>
           </div>
           
