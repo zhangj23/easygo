@@ -1,4 +1,4 @@
-### EasyGo
+# EasyGo
 
 ## Overview
 Over 1.3 billion people worldwide live with some form of disability, many of whom face daily challenges with mobility in public spaces. Current navigation tools lack real-time data to avoid obstacles, making navigation risky and unpredictable for people with disabilities.
@@ -12,10 +12,10 @@ Frontend: React, Leaflet, TailwindCSS
 Backend: Node.js, Express.js, MongoDB, Graphhopper
 
 ## Getting Started
-# Prerequisites
+### Prerequisites
 * Node.js installed
 * MongoDB Atlas account or local MongoDB setup
-# Installation
+### Installation
 * cd frontend
 * npm i
 * npm run start
