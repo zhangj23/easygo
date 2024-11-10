@@ -68,7 +68,10 @@ const SearchDropdown = (props) => {
           placeholder={props.placeholder}
           className="w-full outline-none bg-transparent text-black-600 text-sm"
         />
-        <FaSearchLocation className="text-gray-500 cursor-pointer" />
+        <FaSearchLocation
+          className="text-gray-500 cursor-pointer"
+          onClick={props.setSearchClick}
+        />
       </div>
 
       {isOpen && Object.keys(items).length > 0 && (
