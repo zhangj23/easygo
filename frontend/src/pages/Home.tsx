@@ -4,6 +4,7 @@ import { baseUrl } from "../config";
 import { FaSearchLocation } from "react-icons/fa";
 import SearchDropdown from "../components/SearchDropdown.tsx";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [currentLat, setLat] = useState<Number>();
@@ -92,6 +93,12 @@ function Home() {
           <img className="w-2/3" src="logo.png" alt="logo" />
         </a>
         <div className="flex space-x-8">
+          <a
+            className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+            href="/aboutus"
+          >
+            About Us
+          </a>
           <button
             onClick={logOut}
             className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
@@ -123,9 +130,15 @@ function Home() {
         </div>
       </div>
       <div className="flex">
-        <div className="py-2 w-3/4 ml-4">
+        <div className="py-2 w-3/4 ml-8">
           {currentLat ? (
-            <MapComponent lat={currentLat} long={currentLong} route={route} />
+            <MapComponent
+              lat={endLat ? endLat : currentLat}
+              long={endLon ? endLon : currentLong}
+              zoom={endLon ? 16 : 15}
+              key={endLon}
+              route={route}
+            />
           ) : (
             ""
           )}

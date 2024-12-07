@@ -9,6 +9,7 @@ import Home from "./pages/Home.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import Forgotpwd from "./pages/Forgotpwd.tsx";
+import AboutUs from "./pages/AboutUs.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,9 +31,11 @@ const router = createBrowserRouter([
     path: "/forgotpassword",
     element: <Forgotpwd />,
   },
+  {
+    path: "/aboutus",
+    element: <AboutUs />,
+  },
 ]);
-
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
