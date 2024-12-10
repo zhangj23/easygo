@@ -29,7 +29,6 @@ function AboutUs() {
         </div>
       </div>
       <div className="flex justify-around h-screen items-center">
-        <img className="w-1/4" src="hackrpi.webp" alt="hackrpi" />
         <p className="text-xl font-semibold w-2/3">
           Our project started at HackRPI 2024, where the theme was Urban
           Upgrades. Our development team has a passion for making the world a

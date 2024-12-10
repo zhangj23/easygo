@@ -155,6 +155,22 @@ function Home() {
           />
         </div>
       </div>
+
+      <footer className="bg-white h-8 flex justify-center items-center">
+        MIT License |
+        <a
+          className="ml-2 relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+          href="https://github.com/zhangj23/easygo"
+        >
+          Github |
+        </a>
+        <a
+          className="ml-2 relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+          href="ContactUs.tsx"
+        >
+          Contact Us
+        </a>
+      </footer>
     </div>
   );
 }
