@@ -10,6 +10,7 @@ import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import Forgotpwd from "./pages/Forgotpwd.tsx";
 import AboutUs from "./pages/AboutUs.tsx";
+import ContactUs from "./pages/ContactUs.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/aboutus",
     element: <AboutUs />,
+  },
+  {
+    path: "/contactus",
+    element: <ContactUs />,
   },
 ]);
 
