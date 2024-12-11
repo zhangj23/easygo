@@ -80,7 +80,7 @@ function Landing() {
         </a>
         <a
           className="ml-2 relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-          href="ContactUs.tsx"
+          href="/contactus"
         >
           Contact Us
         </a>

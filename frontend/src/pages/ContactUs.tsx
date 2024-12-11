@@ -8,33 +8,42 @@ function AboutUs() {
     navigate("/login");
   };
   return (
-    <div className="h-[120vh] bg-gradient-to-t from-blue-300 to-white-400 font-poppins">
-      <div className="flex items-center justify-between px-10 py-2 bg-white shadow-lg">
-        <a href="/home">
-          <img className="w-2/3" src="logo.png" alt="logo" />
-        </a>
-        <div className="flex space-x-8">
-          <a
-            className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-            href="/aboutus"
-          >
-            About Us
+    <div className="h-screen bg-gradient-to-t from-blue-300 to-white-400 font-poppins">
+      <div className="min-h-screen">
+        <div className="flex items-center justify-between px-10 py-2 bg-white shadow-lg">
+          <a href="/home">
+            <img className="w-2/3" src="logo.png" alt="logo" />
           </a>
-          <button
-            onClick={logOut}
-            className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Log Out
-          </button>
+          <div className="flex space-x-8">
+            <a
+              className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+              href="/aboutus"
+            >
+              About Us
+            </a>
+            <button
+              onClick={logOut}
+              className="text-2xl font-semibold relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="flex justify-around h-screen items-center">
-        <p className="text-xl font-semibold w-2/3">
-          Our project started at HackRPI 2024, where the theme was Urban
-          Upgrades. Our development team has a passion for making the world a
-          better place and we hope to be able to make a lasting impact in the
-          future!
-        </p>
+        <h1 className="text-5xl font-bold justify-center flex p-10">
+          Contact Us
+        </h1>
+        <div className="flex justify-around items-center">
+          <div className="bg-white shadow-xl rounded-lg items-center m-auto py-10 w-[26vw] h-[15vw]">
+            <div className="*:p-4">
+              <p>
+                <b>Phone Number:</b> (123)-456-7890
+              </p>
+              <p>
+                <b>Email:</b> easygo@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <footer className="bg-white h-8 flex justify-center items-center">
@@ -47,7 +56,7 @@ function AboutUs() {
         </a>
         <a
           className="ml-2 relative after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-300 hover:after:w-full"
-          href="ContactUs.tsx"
+          href="/contactus"
         >
           Contact Us
         </a>
